@@ -852,6 +852,35 @@ async def manual_match(
 
     # Discord Interaction 3초 제한 대응
     await interaction.response.defer(
+    ephemeral=True,
+    thinking=True
+)
+
+try:
+    result = await create_match_post(
+        match_time=시간,
+        manual=True
+    )
+
+    if result:
+        await interaction.followup.send(
+            f"✅ **{시간} 협곡 내전 모집글**을 생성했습니다!",
+            ephemeral=True
+        )
+    else:
+        await interaction.followup.send(
+            "❌ 모집글 생성에 실패했습니다. Railway 로그를 확인해주세요.",
+            ephemeral=True
+        )
+
+except Exception as e:
+    print(
+        f"❌ /내전모집 오류: "
+        f"{type(e).__name__}: {e}"
+    )
+
+    await interaction.followup.send(
+        f"❌ 내전 모집 처리 중 오류가 발생했습니다: `{type(e).__name__}`",
         ephemeral=True
     )
 
