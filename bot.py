@@ -64,7 +64,7 @@ class MatchView(discord.ui.View):
     def make_embed(self):
 
         embed = discord.Embed(
-            title="🕘 와드박스 모바시 내전 정보",
+            title="🕘 와드박스 협곡 내전 정보",
             description=f"시작 시간 : {self.match_time}",
         )
 
@@ -81,7 +81,7 @@ class MatchView(discord.ui.View):
 
 
         embed.add_field(
-            name=f"👍 모바시 참여 ({len(self.participants)}/{MAX_PLAYERS})",
+            name=f"👍 내전 참여 ({len(self.participants)}/{MAX_PLAYERS})",
             value=participant_text,
             inline=False
         )
@@ -108,7 +108,7 @@ class MatchView(discord.ui.View):
 
         embed.add_field(
             name="💌 안내",
-            value="모바시 10인이 모이면 관리자 호출을 눌러주세요!",
+            value="20:00 이전 대기열 삭제는 서버 경고 사유가 될 수 있습니다.",
             inline=False
         )
 
